@@ -1,4 +1,11 @@
 $(document).ready(function () {
+  $('form').on('submit',function(e){
+    e.preventDefault();
+    var url = $(this).attr('action');
+    $.post(url,function(response){
+       $('#die').replaceWith(response);
+    });
+  });
 
   // PSEUDO-CODE:
   //   1- intercept the form submission event using jQuery
